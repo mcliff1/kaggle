@@ -38,6 +38,15 @@ In this flow docker is expected to be installed. If we are not modifying the per
 
 To make this work with Kaggle you want to create a *input* as a sym-link one directory below the script folder pointing to the appropriate s3 data subfolder to enable a command like `open('../input/datafile.csv')`;   we should also create *output*
 
+```
+ROOT/code/project1/script.ipynb
+    -s   /input -> ../data/project1
+         /project2/
+    /data/project1
+         /project2/
+    /work/
+```
+
 ## Ad Tracker
 [Talking Data Ad Tracker Fraud Detection Challenge](https://www.kaggle.com/c/talkingdata-adtracking-fraud-detection)
 
