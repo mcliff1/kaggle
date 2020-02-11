@@ -1,2 +1,5 @@
 input
 */.ipynb_checkpoints/*
+
+.env
+cdk.out

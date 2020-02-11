@@ -1,5 +1,11 @@
 # Kaggle
 
+## AWS CDK setup
+create a pipeline to be able to push otut and back things
+
+
+
+
 ## Overview
 
 This repo was dormant for almost a year, I used it once to manage refactoring some R code. Once again, I have a use and may as well use this repo;  this time I want to set up a flow where you can have a set of working notebooks as well as a 'persisted data' and working data area tied all together with a jupyter notebook.  This is exactly the functionality that Kaggle offers, however this repo will provide the scripts and tools to do this local or in the AWS cloud (and perhaps the Google cloud)
