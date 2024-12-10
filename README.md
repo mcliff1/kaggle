@@ -2,8 +2,10 @@
 
 ## Run in Co Lab
 
-[Brownian](https://colab.research.google.com/github/mcliff1/kaggle/blob/master/sandbox/Brownian%20Walk.ipynb)
+[Brownian Motion](https://colab.research.google.com/github/mcliff1/kaggle/blob/master/sandbox/Brownian%20Walk.ipynb)
 
+
+[Probability Windows](https://colab.research.google.com/github/mcliff1/kaggle/blob/master/sandbox/probability%20windows.ipynb)
 
 ## Overview
 
