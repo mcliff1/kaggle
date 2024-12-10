@@ -1,5 +1,9 @@
 # Kaggle
 
+## Run in Co Lab
+
+[Brownian](https://colab.research.google.com/github/mcliff1/kaggle/blob/master/sandbox/BrownianWalk.ipynb)
+
 ## AWS CDK setup
 create a pipeline to be able to push otut and back things
 
