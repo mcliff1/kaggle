@@ -4,15 +4,13 @@
 
 [Brownian](https://colab.research.google.com/github/mcliff1/kaggle/blob/master/sandbox/Brownian%20Walk.ipynb)
 
-## AWS CDK setup
-create a pipeline to be able to push otut and back things
-
-
-
 
 ## Overview
 
 This repo was dormant for almost a year, I used it once to manage refactoring some R code. Once again, I have a use and may as well use this repo;  this time I want to set up a flow where you can have a set of working notebooks as well as a 'persisted data' and working data area tied all together with a jupyter notebook.  This is exactly the functionality that Kaggle offers, however this repo will provide the scripts and tools to do this local or in the AWS cloud (and perhaps the Google cloud)
+
+Remove CDK components, instead plan to use this to support ipy notebooks, with codelab, as well as kaggle api's
+
 
 A runtime environment is expected to be running on a local filesystem with the following layout
 ```
@@ -21,18 +19,6 @@ ROOT/code/project1/
     /data/
     /work/
 ```
-
-When creating or activating a runtime environment it is expected that the respective code project be pulled from the repository and the data folder have been synced from S3. When completing work in an environment the data folder should be appropriately synced to S3 with updates being pushed to their repos. The actual runtime environment could be in the local filesystem, or a docker container pointing to this ROOT folder.
-
-The purpose of the data bucket is to store larger data sets that may be expensive or time consuming to recreate on demand. The work area is not persisted and should be used for scripts as a semi-durable file store.
-
-### Local Machine Workflow
-
-
-
-### EC2 Workflow
-
-
 
 ### Local Server Docker Workflow
 In this flow docker is expected to be installed. If we are not modifying the persisted data sets we only need run steps 4-6
