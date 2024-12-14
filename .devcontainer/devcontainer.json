@@ -1,8 +1,6 @@
 {
-  "name": "Jupyter Notebook Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "Python 3",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3",
   "customizations": {
     "vscode": {
       "settings": {
