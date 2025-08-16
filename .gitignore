@@ -1,5 +1,6 @@
 input
 */.ipynb_checkpoints/*
+__pycache__/
 
 .env
 cdk.out
