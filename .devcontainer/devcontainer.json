@@ -13,5 +13,6 @@
       ]
     }
   },
-  "forwardPorts": [8888]
+  "forwardPorts": [8888],
+  "postCreateCommand": "pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'"
 }
