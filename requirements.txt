@@ -2,4 +2,6 @@ pandas
 scikit-learn
 numpy
 kaggle
+matplotlib
+seaborn
 
