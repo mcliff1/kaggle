@@ -15,5 +15,9 @@
     }
   },
   "forwardPorts": [8888],
-  "postCreateCommand": "pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'"
+  "postCreateCommand": "pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'",
+  "mounts": [
+    "source=${localEnv:HOME}/.kaggle,target=/root/.kaggle,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"
+  ]
 }
