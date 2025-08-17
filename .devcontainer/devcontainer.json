@@ -1,25 +1,28 @@
 {
   "name": "Python 3",
   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+  "remoteUser": "vscode",
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.defaultInterpreterPath": "/usr/local/bin/python3"
       },
-          "python.defaultInterpreterPath": "/usr/local/bin/python3",
-
       "extensions": [
-  "ms-python.python",
-  "ms-toolsai.jupyter",
-  "ms-vscode-remote.remote-containers",
-  "github.copilot-chat"
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "github.copilot-chat"
       ]
     }
   },
   "forwardPorts": [8888],
-  "postCreateCommand": "mkdir -p ~/.kaggle && if [ ! -z \"$KAGGLE_JSON\" ]; then echo \"$KAGGLE_JSON\" > ~/.kaggle/kaggle.json && chmod 600 ~/.kaggle/kaggle.json; fi && pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'",
+  "containerEnv": {
+    "KAGGLE_CONFIG_DIR": "/home/vscode/.kaggle"
+  },
+  "postCreateCommand": "mkdir -p ~/.kaggle && if [ ! -z \"$KAGGLE_JSON\" ]; then echo \"$KAGGLE_JSON\" > ~/.kaggle/kaggle.json && chmod 600 ~/.kaggle/kaggle.json; fi && pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'"
+  ,
   "mounts": [
-    "source=${localEnv:HOME}/.kaggle,target=/root/.kaggle,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.kaggle,target=/home/vscode/.kaggle,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
   ]
 }
