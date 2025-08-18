@@ -16,9 +16,6 @@
     }
   },
   "forwardPorts": [8888],
-  "containerEnv": {
-    "KAGGLE_CONFIG_DIR": "/home/vscode/.kaggle"
-  },
   "postCreateCommand": "mkdir -p ~/.kaggle && if [ ! -z \"$KAGGLE_JSON\" ]; then echo \"$KAGGLE_JSON\" > ~/.kaggle/kaggle.json && chmod 600 ~/.kaggle/kaggle.json; fi && pip install -r /workspaces/kaggle/requirements.txt && git config --global user.name 'mcliff' && git config --global user.email 'matt@denvercliffs.com'"
   ,
   "mounts": [
