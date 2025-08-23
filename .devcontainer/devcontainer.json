@@ -5,7 +5,7 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.defaultProfile.linux": "bash",
         "python.defaultInterpreterPath": "/usr/local/bin/python3"
       },
       "extensions": [
@@ -17,6 +17,7 @@
   },
   "forwardPorts": [8888, 8000],
   "postCreateCommand": "bash -lc 'set -euo pipefail; pip install -U pip; if [ -f \"${containerWorkspaceFolder}/requirements.txt\" ]; then pip install -r \"${containerWorkspaceFolder}/requirements.txt\"; fi; if [ -f \"${containerWorkspaceFolder}/mcp_server/requirements.txt\" ]; then pip install -r \"${containerWorkspaceFolder}/mcp_server/requirements.txt\"; fi; mkdir -p ~/.kaggle; if [ -n \"${KAGGLE_JSON:-}\" ]; then echo \"$KAGGLE_JSON\" > ~/.kaggle/kaggle.json && chmod 600 ~/.kaggle/kaggle.json; fi'",
+  "postStartCommand": "bash .devcontainer/scripts/fix-codespaces-node.sh",
   "mounts": [
     "source=${localEnv:HOME}/.kaggle,target=/home/vscode/.kaggle,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
