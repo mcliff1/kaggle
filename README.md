@@ -53,3 +53,36 @@ To set up the *R Studio* work station, use Lauch Template **lt-015e347f2161b738b
  With this project, used the **LightGBM** method and **R**.  Using the Kaggle kernels I was only able to use *45 million* records. With 2 hours to go I am attempting to split this up onto server different machines.
 
 the `light-parts.R` script will generate this over 45 million records using a AWS r3.xlarge machine (32GB RAM)
+
+## Dev Containers, Codespaces, and Remote Hosts
+
+The repo includes a ready-to-use VS Code Dev Container that also works in GitHub Codespaces and on remote Linux hosts (EC2/GCE) with Docker.
+
+- Dev Container: open folder in container from VS Code. It installs Python deps from `requirements.txt` and `mcp_server/requirements.txt`, forwards ports `8888` (Jupyter) and `8000` (FastAPI), and mounts `~/.kaggle` and `~/.aws` into the container.
+- GPU Variant: use `.devcontainer/devcontainer.gpu.json` when you have an NVIDIA GPU + Docker runtime installed. This adds `--gpus all` to the container run args.
+- Codespaces: works with the default `.devcontainer/devcontainer.json`. GPU is not available in Codespaces at this time.
+
+### Quick Start
+
+1. VS Code → Command Palette → "Dev Containers: Reopen in Container" (or "Codespaces: Create codespace on main" on GitHub).
+2. Verify deps: a terminal in the container shows Python 3.13, and `pip list` includes packages from `requirements.txt`.
+3. Notebooks: open `.ipynb` files directly. Or run the task "Start Jupyter (tokenless)" to expose Jupyter on port 8888.
+4. API server: use the launch config "FastAPI: mcp_server" or run the task "Start FastAPI (mcp_server)"; browse `http://localhost:8000`.
+
+### Kaggle Credentials
+
+- Mounts: the devcontainer mounts `~/.kaggle` from your host. Ensure `~/.kaggle/kaggle.json` exists with mode `600`.
+- Env alternative: set `KAGGLE_JSON` in your Codespace/Dev Container to inject credentials automatically on create.
+
+### Remote EC2/GCE with GPU
+
+1. Provision a Linux VM with Docker Engine and the NVIDIA Container Toolkit.
+2. Use VS Code "Remote - SSH" to connect and open this repo on the host.
+3. In VS Code, run "Dev Containers: Reopen in Container" and pick the GPU variant file (`.devcontainer/devcontainer.gpu.json`).
+4. Inside the container, install any GPU libraries you need (e.g., PyTorch with a CUDA build) in addition to `requirements.txt`.
+
+### Notes
+
+- The default container uses `mcr.microsoft.com/vscode/devcontainers/python:3.13` and installs repo dependencies automatically.
+- Ports 8000 and 8888 are forwarded for FastAPI and Jupyter. Adjust in `.devcontainer/devcontainer.json` if needed.
+- R scripts under `adtracker/` are optional; if you need R inside the container, we can add the Dev Container R feature.
